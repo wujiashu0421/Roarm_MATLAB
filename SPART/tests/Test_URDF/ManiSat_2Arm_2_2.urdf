@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+
+<!-- Simplistic Version of ManiSat for testing purposes -->
+
+<robot name="ManiSat">
+
+  <link name="Base-Spacecraft">
+    <inertial>
+      <mass value="13.3"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0.2850"/>
+    </inertial>
+  </link>
+
+  <joint name="JA" type="revolute">
+    <origin rpy="0 0 1.5708" xyz="0 0.2 0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="Base-Spacecraft"/>
+    <child link="LA"/>
+  </joint>
+
+  <link name="LA">
+    <inertial>
+      <mass value="2.9"/>
+      <origin rpy="0 0 0" xyz="0.1926 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0.1245"/>
+    </inertial>
+  </link>
+
+  <joint name="JB" type="revolute">
+    <origin rpy="0 0 0" xyz="0.3852 0 0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="LA"/>
+    <child link="LB"/>
+  </joint>
+
+  <link name="LB">
+    <inertial>
+      <mass value="2.9"/>
+      <origin rpy="0 0 0" xyz="0.1635 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0.1245"/>
+    </inertial>
+  </link>
+
+  <joint name="JC" type="revolute">
+    <origin rpy="0 0 -1.5708" xyz="0 -0.2 0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="Base-Spacecraft"/>
+    <child link="LC"/>
+  </joint>
+
+  <link name="LC">
+    <inertial>
+      <mass value="2.9"/>
+      <origin rpy="0 0 0" xyz="0.1926 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0.1245"/>
+    </inertial>
+  </link>
+
+  <joint name="JD" type="revolute">
+    <origin rpy="0 0 0" xyz="0.3852 0 0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="LC"/>
+    <child link="LD"/>
+  </joint>
+
+  <link name="LD">
+    <inertial>
+      <mass value="2.9"/>
+      <origin rpy="0 0 0" xyz="0.1635 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0.1245"/>
+    </inertial>
+  </link>
+
+
+</robot>
+
