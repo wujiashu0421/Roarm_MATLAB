@@ -31,7 +31,8 @@ Start = robot.randomConfiguration;
 tform = getTransform(robot,Start,"l4_link","base_link");
 show(robot, Start)
 
-joint_states_publish(control_pub, Start, control_msg);
+% Speed, acceleration in 1/4096 revolution per unit
+joint_states_publish(control_pub, Start, 200, 1, control_msg);
 
 pause(5);
 
@@ -46,11 +47,13 @@ show(robot, configSoln)
 %% Joint State Publisher
 % Input: Publisher Object. Configuration Variable. Message Variable
 % Output: None
-function joint_states_publish(publisher, configuration, msg)
-    position = zeros(1, size(configuration, 2));
+function joint_states_publish(publisher, configuration, speed, acc, msg)
+    position = zeros(1, size(configuration, 2)+2);
     for i = 1:size(configuration, 2)
         position(i) = configuration(i).JointPosition;
     end
+    position(end-1) = speed;
+    position(end) = acc;
     
     msg.position = position;
 
